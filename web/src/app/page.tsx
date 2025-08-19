@@ -206,7 +206,8 @@ function ProductComparison() {
       pros: [
         "Prêmios mais baixos",
         "Cobertura alta por pouco custo",
-        "Perfeito para jovens famílias"
+        "Perfeito para jovens famílias",
+        "Flexibilidade de período"
       ],
       cons: [
         "Sem valor de resgate",
@@ -220,25 +221,12 @@ function ProductComparison() {
       pros: [
         "Benefício em vida disponível",
         "Potencial de crescimento",
-        "Flexibilidade de prêmios"
+        "Flexibilidade de prêmios",
+        "Componente de investimento"
       ],
       cons: [
         "Prêmios mais altos",
         "Complexidade maior"
-      ]
-    },
-    {
-      name: "Whole Life",
-      description: "Seguro permanente com crescimento garantido",
-      ideal: "Ideal para: Planejamento sucessório",
-      pros: [
-        "Crescimento garantido",
-        "Dividendos possíveis",
-        "Estabilidade total"
-      ],
-      cons: [
-        "Prêmios mais altos",
-        "Crescimento mais lento"
       ]
     }
   ];
@@ -248,14 +236,14 @@ function ProductComparison() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Qual Tipo de Seguro é Melhor Para Você?
+            Term Life ou IUL: Qual é Melhor Para Você?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comparação simples dos principais tipos de seguro de vida disponíveis para brasileiros nos EUA
+            Comparação entre os dois tipos de seguro de vida que oferecemos para brasileiros nos EUA
           </p>
         </div>
         
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8">
           {products.map((product, index) => (
             <div key={index} className="bg-gray-50 rounded-lg p-8 border-2 border-gray-200 hover:border-blue-300 transition-colors">
               <div className="text-center mb-6">
