@@ -366,4 +366,4 @@ Para dúvidas ou suporte técnico:
 
 ---
 
-**© 2024 Alves Cury Financial. Desenvolvido com ❤️ para brasileiros nos EUA.**
+**© 2024 Alves Cury Financial. Desenvolvido com ❤️ para brasileiros nos EUA.**# Test with correct GitHub email
