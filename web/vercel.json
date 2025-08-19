@@ -2,7 +2,6 @@
   "version": 2,
   "name": "alves-cury-financial",
   "alias": ["alvescuryfinancial.com", "www.alvescuryfinancial.com"],
-  "regions": ["iad1", "sfo1"],
   "builds": [
     {
       "src": "package.json",
