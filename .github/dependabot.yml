@@ -1,0 +1,58 @@
+version: 2
+updates:
+  # Web (Next.js) dependencies
+  - package-ecosystem: "npm"
+    directory: "/web"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "malves-eth"
+    assignees:
+      - "malves-eth"
+    commit-message:
+      prefix: "web"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "web"
+
+  # API (NestJS) dependencies  
+  - package-ecosystem: "npm"
+    directory: "/api"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "malves-eth"
+    assignees:
+      - "malves-eth"
+    commit-message:
+      prefix: "api"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "api"
+
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "malves-eth"
+    assignees:
+      - "malves-eth"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"

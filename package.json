@@ -1,0 +1,74 @@
+{
+  "name": "alves-cury-financial",
+  "version": "1.0.0",
+  "description": "Landing page and API for Alves Cury Financial - Life Insurance specialists for Brazilians in the USA",
+  "private": true,
+  "author": {
+    "name": "Alves Cury Financial",
+    "email": "contato@alvescuryfinancial.com",
+    "url": "https://www.alvescuryfinancial.com"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malves-eth/landingpage.git"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "cd web && npm run dev",
+    "dev:api": "cd api && npm run start:dev",
+    "build": "npm run build:web && npm run build:api",
+    "build:web": "cd web && npm run build",
+    "build:api": "cd api && npm run build",
+    "start": "concurrently \"npm run start:web\" \"npm run start:api\"",
+    "start:web": "cd web && npm run start",
+    "start:api": "cd api && npm run start:prod",
+    "test": "npm run test:web && npm run test:api",
+    "test:web": "cd web && npm run test",
+    "test:api": "cd api && npm run test",
+    "test:e2e": "cd api && npm run test:e2e",
+    "lint": "npm run lint:web && npm run lint:api",
+    "lint:web": "cd web && npm run lint",
+    "lint:api": "cd api && npm run lint",
+    "lint:fix": "npm run lint:fix:web && npm run lint:fix:api",
+    "lint:fix:web": "cd web && npm run lint --fix",
+    "lint:fix:api": "cd api && npm run lint --fix",
+    "clean": "npm run clean:web && npm run clean:api",
+    "clean:web": "cd web && rm -rf .next out node_modules",
+    "clean:api": "cd api && rm -rf dist node_modules",
+    "install:all": "npm install && cd web && npm install && cd ../api && npm install",
+    "prisma:generate": "cd api && npm run prisma:generate",
+    "prisma:migrate": "cd api && npm run prisma:migrate",
+    "prisma:studio": "cd api && npm run prisma:studio",
+    "prisma:seed": "cd api && npm run prisma:seed",
+    "security:audit": "npm run security:audit:web && npm run security:audit:api",
+    "security:audit:web": "cd web && npm audit --audit-level moderate",
+    "security:audit:api": "cd api && npm audit --audit-level moderate",
+    "security:fix": "npm run security:fix:web && npm run security:fix:api",
+    "security:fix:web": "cd web && npm audit fix",
+    "security:fix:api": "cd api && npm audit fix",
+    "deploy:staging": "vercel --cwd web",
+    "deploy:production": "vercel --cwd web --prod",
+    "setup": "npm run install:all && npm run prisma:generate"
+  },
+  "workspaces": [
+    "web",
+    "api"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "life-insurance",
+    "financial-services",
+    "brazilians-usa",
+    "nextjs",
+    "nestjs",
+    "prisma",
+    "vercel"
+  ]
+}

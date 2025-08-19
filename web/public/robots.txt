@@ -1,0 +1,48 @@
+# Robots.txt para Alves Cury Financial
+# Otimizado para SEO de seguros de vida
+
+User-agent: *
+Allow: /
+
+# Arquivos importantes para crawlers
+Allow: /sitemap.xml
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+
+# Bloquear arquivos administrativos
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Crawl-delay para ser respeitoso com os recursos do servidor
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.alvescuryfinancial.com/sitemap.xml
+
+# Instruções específicas para bots principais
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Bloquear bots maliciosos conhecidos
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
