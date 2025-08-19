@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
 env:
   NODE_VERSION: '20'
 
@@ -157,6 +162,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [deploy-production]
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
     
     steps:
       - name: 📦 Checkout
@@ -180,3 +187,4 @@ jobs:
             --title "Release v$VERSION" \
             --notes "Automated release for commit $(git rev-parse --short HEAD)" \
             --latest
+        continue-on-error: true
