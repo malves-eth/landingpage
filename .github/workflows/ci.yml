@@ -28,14 +28,17 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: ${{ matrix.project }}/package-lock.json
+          cache-dependency-path: package-lock.json
       
       - name: 📥 Install dependencies
         run: |
+          # Install workspace dependencies first
+          npm ci
+          # Then install specific project dependencies
           if [ "${{ matrix.project }}" = "api" ]; then
-            npm ci --prefix ${{ matrix.project }} --legacy-peer-deps
+            cd ${{ matrix.project }} && npm install --legacy-peer-deps
           else
-            npm ci --prefix ${{ matrix.project }}
+            cd ${{ matrix.project }} && npm install
           fi
       
       - name: 🔍 Run ESLint
