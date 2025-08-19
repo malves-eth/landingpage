@@ -61,7 +61,9 @@ export class LeadsService {
     try {
       const notifyTo = this.configService.get('NOTIFY_TO');
       if (!notifyTo) {
-        this.logger.warn('NOTIFY_TO not configured, skipping email notification');
+        this.logger.warn(
+          'NOTIFY_TO not configured, skipping email notification',
+        );
         return;
       }
 
@@ -77,7 +79,7 @@ export class LeadsService {
         utmCampaign: escapeHtml(lead.utmCampaign || ''),
         utmContent: escapeHtml(lead.utmContent || ''),
         utmTerm: escapeHtml(lead.utmTerm || ''),
-        id: escapeHtml(lead.id || '')
+        id: escapeHtml(lead.id || ''),
       };
 
       const emailHTML = `
@@ -92,7 +94,9 @@ export class LeadsService {
           <li><strong>Objetivo:</strong> ${safeData.goal}</li>
         </ul>
         
-        ${safeData.utmSource ? `
+        ${
+          safeData.utmSource
+            ? `
         <h3>Dados UTM:</h3>
         <ul>
           <li><strong>Source:</strong> ${safeData.utmSource}</li>
@@ -101,7 +105,9 @@ export class LeadsService {
           <li><strong>Content:</strong> ${safeData.utmContent}</li>
           <li><strong>Term:</strong> ${safeData.utmTerm}</li>
         </ul>
-        ` : ''}
+        `
+            : ''
+        }
         
         <p><strong>Data:</strong> ${new Date(lead.createdAt).toLocaleString('pt-BR')}</p>
         

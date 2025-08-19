@@ -5,7 +5,6 @@ import {
   Body,
   Param,
   UsePipes,
-  ValidationPipe,
   HttpException,
   HttpStatus,
   Logger,

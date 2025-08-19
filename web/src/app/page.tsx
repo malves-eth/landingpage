@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
-import { MessageCircle, Users } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from "next/image";
