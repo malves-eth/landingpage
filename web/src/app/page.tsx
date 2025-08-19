@@ -197,93 +197,59 @@ function CommunityGrowth() {
 
 
 
-function ProductComparison() {
-  const products = [
+function Benefits() {
+  const benefits = [
     {
-      name: "Term Life",
-      description: "Seguro temporário por período determinado",
-      ideal: "Ideal para: Proteção durante anos de trabalho",
-      pros: [
-        "Prêmios mais baixos",
-        "Cobertura alta por pouco custo",
-        "Perfeito para jovens famílias",
-        "Flexibilidade de período"
-      ],
-      cons: [
-        "Sem valor de resgate",
-        "Prêmios aumentam com idade"
-      ]
+      icon: "🛡️",
+      title: "Proteção Garantida",
+      description: "Sua família protegida financeiramente em caso de falecimento, com valores que podem chegar a milhões de dólares."
     },
     {
-      name: "IUL (Indexed Universal Life)",
-      description: "Seguro permanente com crescimento baseado em índices",
-      ideal: "Ideal para: Quem quer proteção + investimento",
-      pros: [
-        "Benefício em vida disponível",
-        "Potencial de crescimento",
-        "Flexibilidade de prêmios",
-        "Componente de investimento"
-      ],
-      cons: [
-        "Prêmios mais altos",
-        "Complexidade maior"
-      ]
+      icon: "💰",
+      title: "Benefício em Vida",
+      description: "Acesso ao dinheiro do seguro ainda em vida para emergências médicas ou outras necessidades urgentes."
+    },
+    {
+      icon: "🌍",
+      title: "Cobertura Mundial",
+      description: "Proteção válida em qualquer lugar do mundo, incluindo o Brasil. Sua família recebe independente de onde você estiver."
+    },
+    {
+      icon: "📋",
+      title: "Sem Burocracia",
+      description: "Processo simples em português. Cuidamos de toda a documentação e acompanhamos você do início ao fim."
+    },
+    {
+      icon: "💵",
+      title: "Livre de Impostos",
+      description: "O benefício é pago diretamente aos beneficiários, livre de impostos federais americanos."
+    },
+    {
+      icon: "⚡",
+      title: "Aprovação Rápida",
+      description: "Na maioria dos casos, aprovação em 30-60 dias. Alguns casos podem ser aprovados ainda mais rápido."
     }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Term Life ou IUL: Qual é Melhor Para Você?
+            Por Que Escolher Nosso Seguro de Vida?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comparação entre os dois tipos de seguro de vida que oferecemos para brasileiros nos EUA
+            Benefícios únicos que só o sistema americano oferece para brasileiros
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8">
-          {products.map((product, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-8 border-2 border-gray-200 hover:border-blue-300 transition-colors">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <p className="text-blue-600 font-medium text-sm bg-blue-50 px-4 py-2 rounded-full">
-                  {product.ideal}
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-bold text-green-700 mb-3 flex items-center">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                    Vantagens
-                  </h4>
-                  <ul className="space-y-2">
-                    {product.pros.map((pro, i) => (
-                      <li key={i} className="text-gray-700 text-sm flex items-start">
-                        <span className="text-green-500 mr-2 mt-1">✓</span>
-                        {pro}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-orange-700 mb-3 flex items-center">
-                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
-                    Considerações
-                  </h4>
-                  <ul className="space-y-2">
-                    {product.cons.map((con, i) => (
-                      <li key={i} className="text-gray-700 text-sm flex items-start">
-                        <span className="text-orange-500 mr-2 mt-1">!</span>
-                        {con}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-center">
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </div>
             </div>
           ))}
@@ -291,20 +257,20 @@ function ProductComparison() {
         
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-6 text-lg">
-            Não sabe qual escolher? Nossa consultoria é <strong>100% gratuita</strong>
+            Quer saber qual seguro é ideal para seu perfil?
           </p>
           <Button 
             size="lg" 
             asChild
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 text-lg rounded-full"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 text-lg rounded-full"
           >
             <a 
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              aria-label="Falar com consultor para escolher melhor tipo de seguro"
+              aria-label="Solicitar análise personalizada via WhatsApp"
             >
-              FALAR COM CONSULTOR ESPECIALISTA
+              SOLICITAR ANÁLISE PERSONALIZADA
             </a>
           </Button>
         </div>
@@ -526,7 +492,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <HowItWorks />
-        <ProductComparison />
+        <Benefits />
         <CommunityGrowth />
         <FAQ />
         <AboutConsultants />
