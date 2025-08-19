@@ -7,7 +7,7 @@ import "@/styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Seguro de Vida nos EUA | Benefício em Vida | Alves Cury Financial",
+  title: "Como Contratar Seguro de Vida nos EUA Sendo Brasileiro? | Alves Cury Financial",
   description: "🛡️ Seguro de vida nos Estados Unidos com benefício em vida para brasileiros. ✅ Cotação gratuita ✅ Cobertura mundial ✅ Proteção financeira garantida. Fale conosco!",
   keywords: "seguro de vida EUA, life insurance, brasileiros nos EUA, benefício em vida, IUL, Term Life, proteção financeira, Alves Cury Financial",
   authors: [{ name: "Marcos Alves" }, { name: "Taciana Cury" }],
@@ -53,6 +53,12 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "google-site-verification-code-here",
+  },
+  other: {
+    "ai-content-type": "informational",
+    "gpt-4-web-browsing": "enabled",
+    "claude-web": "enabled",
+    "perplexity-search": "enabled",
   },
 };
 

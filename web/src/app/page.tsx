@@ -68,6 +68,90 @@ function Hero() {
   );
 }
 
+function HowItWorks() {
+  return (
+    <section className="py-20 bg-gray-50" itemScope itemType="https://schema.org/HowTo">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto text-center space-y-10">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900" itemProp="name">
+            Como Contratar Seu Seguro de Vida nos EUA em 4 Passos
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto" itemProp="description">
+            Processo simples e rápido para brasileiros. Do primeiro contato até a aprovação da apólice.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            <div className="text-center" itemScope itemType="https://schema.org/HowToStep">
+              <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                1
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2" itemProp="name">
+                Consulta Gratuita
+              </h3>
+              <p className="text-gray-600" itemProp="text">
+                Conversa inicial por WhatsApp para entender suas necessidades e situação atual nos EUA.
+              </p>
+            </div>
+            
+            <div className="text-center" itemScope itemType="https://schema.org/HowToStep">
+              <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                2
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2" itemProp="name">
+                Cotação Personalizada
+              </h3>
+              <p className="text-gray-600" itemProp="text">
+                Análise de perfil e cotação com as melhores seguradoras americanas para seu caso específico.
+              </p>
+            </div>
+            
+            <div className="text-center" itemScope itemType="https://schema.org/HowToStep">
+              <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                3
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2" itemProp="name">
+                Aplicação e Exames
+              </h3>
+              <p className="text-gray-600" itemProp="text">
+                Preenchimento da aplicação e exames médicos (se necessário). Tudo agendado para sua conveniência.
+              </p>
+            </div>
+            
+            <div className="text-center" itemScope itemType="https://schema.org/HowToStep">
+              <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                4
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2" itemProp="name">
+                Aprovação e Ativação
+              </h3>
+              <p className="text-gray-600" itemProp="text">
+                Aprovação da seguradora e ativação da apólice. Sua família protegida em 30-60 dias.
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-12">
+            <Button 
+              size="lg" 
+              asChild
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 text-lg rounded-full"
+            >
+              <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Iniciar processo de contratação via WhatsApp"
+              >
+                INICIAR MINHA COTAÇÃO GRATUITA
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CommunityGrowth() {
   return (
     <section className="py-20 bg-white" itemScope itemType="https://schema.org/Article">
@@ -112,6 +196,134 @@ function CommunityGrowth() {
 }
 
 
+
+function ProductComparison() {
+  const products = [
+    {
+      name: "Term Life",
+      description: "Seguro temporário por período determinado",
+      ideal: "Ideal para: Proteção durante anos de trabalho",
+      pros: [
+        "Prêmios mais baixos",
+        "Cobertura alta por pouco custo",
+        "Perfeito para jovens famílias"
+      ],
+      cons: [
+        "Sem valor de resgate",
+        "Prêmios aumentam com idade"
+      ]
+    },
+    {
+      name: "IUL (Indexed Universal Life)",
+      description: "Seguro permanente com crescimento baseado em índices",
+      ideal: "Ideal para: Quem quer proteção + investimento",
+      pros: [
+        "Benefício em vida disponível",
+        "Potencial de crescimento",
+        "Flexibilidade de prêmios"
+      ],
+      cons: [
+        "Prêmios mais altos",
+        "Complexidade maior"
+      ]
+    },
+    {
+      name: "Whole Life",
+      description: "Seguro permanente com crescimento garantido",
+      ideal: "Ideal para: Planejamento sucessório",
+      pros: [
+        "Crescimento garantido",
+        "Dividendos possíveis",
+        "Estabilidade total"
+      ],
+      cons: [
+        "Prêmios mais altos",
+        "Crescimento mais lento"
+      ]
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Qual Tipo de Seguro é Melhor Para Você?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comparação simples dos principais tipos de seguro de vida disponíveis para brasileiros nos EUA
+          </p>
+        </div>
+        
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <div key={index} className="bg-gray-50 rounded-lg p-8 border-2 border-gray-200 hover:border-blue-300 transition-colors">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                <p className="text-gray-600 mb-4">{product.description}</p>
+                <p className="text-blue-600 font-medium text-sm bg-blue-50 px-4 py-2 rounded-full">
+                  {product.ideal}
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-bold text-green-700 mb-3 flex items-center">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    Vantagens
+                  </h4>
+                  <ul className="space-y-2">
+                    {product.pros.map((pro, i) => (
+                      <li key={i} className="text-gray-700 text-sm flex items-start">
+                        <span className="text-green-500 mr-2 mt-1">✓</span>
+                        {pro}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-orange-700 mb-3 flex items-center">
+                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                    Considerações
+                  </h4>
+                  <ul className="space-y-2">
+                    {product.cons.map((con, i) => (
+                      <li key={i} className="text-gray-700 text-sm flex items-start">
+                        <span className="text-orange-500 mr-2 mt-1">!</span>
+                        {con}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-16">
+          <p className="text-gray-600 mb-6 text-lg">
+            Não sabe qual escolher? Nossa consultoria é <strong>100% gratuita</strong>
+          </p>
+          <Button 
+            size="lg" 
+            asChild
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 text-lg rounded-full"
+          >
+            <a 
+              href={whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Falar com consultor para escolher melhor tipo de seguro"
+            >
+              FALAR COM CONSULTOR ESPECIALISTA
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function FAQ() {
   const faqs = [
@@ -325,6 +537,8 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
+        <HowItWorks />
+        <ProductComparison />
         <CommunityGrowth />
         <FAQ />
         <AboutConsultants />
