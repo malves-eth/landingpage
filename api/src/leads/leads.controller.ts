@@ -23,7 +23,7 @@ export class LeadsController {
   constructor(private readonly leadsService: LeadsService) {}
 
   @Post()
-  @Throttle({ default: { limit: 10, ttl: 60000 } }) // 10 requests per minute
+  @Throttle({ default: { limit: 5, ttl: 60000 } }) // 5 requests per minute - mais restritivo
   @UsePipes(new ZodValidationPipe(CreateLeadSchema))
   async create(@Body() createLeadDto: CreateLeadDto) {
     try {
