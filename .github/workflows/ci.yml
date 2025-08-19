@@ -10,14 +10,10 @@ env:
   NODE_VERSION: '20'
 
 jobs:
-  # Lint and Test
-  test:
-    name: 🧪 Test & Lint
+  # Test & Lint Web
+  test-web:
+    name: 🧪 Test & Lint (web)
     runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        project: [web, api]
     
     steps:
       - name: 📦 Checkout
@@ -28,33 +24,59 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: 'web/package-lock.json'
       
       - name: 📥 Install dependencies
         run: |
-          # Install workspace dependencies first
-          npm ci
-          # Then install specific project dependencies
-          if [ "${{ matrix.project }}" = "api" ]; then
-            cd ${{ matrix.project }} && npm install --legacy-peer-deps
-          else
-            cd ${{ matrix.project }} && npm install
-          fi
+          npm install
+          cd web && npm install
       
       - name: 🔍 Run ESLint
-        run: npm run lint --prefix ${{ matrix.project }}
+        run: cd web && npm run lint
       
       - name: 🧪 Run tests
-        run: npm run test --prefix ${{ matrix.project }}
+        run: cd web && npm run test
         env:
           CI: true
       
       - name: 🏗️ Build project
-        run: npm run build --prefix ${{ matrix.project }}
+        run: cd web && npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://www.alvescuryfinancial.com
           NEXT_PUBLIC_WHATSAPP_PHONE: 15618231966
           NEXT_PUBLIC_BRAND_NAME: "Alves Cury Financial"
+
+  # Test & Lint API
+  test-api:
+    name: 🧪 Test & Lint (api)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📦 Checkout
+        uses: actions/checkout@v4
+      
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: 'api/package-lock.json'
+      
+      - name: 📥 Install dependencies
+        run: |
+          npm install
+          cd api && npm install --legacy-peer-deps
+      
+      - name: 🔍 Run ESLint
+        run: cd api && npm run lint
+      
+      - name: 🧪 Run tests
+        run: cd api && npm run test
+        env:
+          CI: true
+      
+      - name: 🏗️ Build project
+        run: cd api && npm run build
 
   # Security scan
   security:
@@ -85,7 +107,7 @@ jobs:
   deploy-staging:
     name: 🚀 Deploy to Staging
     runs-on: ubuntu-latest
-    needs: [test, security]
+    needs: [test-web, test-api, security]
     if: github.ref == 'refs/heads/develop'
     
     steps:
@@ -105,7 +127,7 @@ jobs:
   deploy-production:
     name: 🚀 Deploy to Production
     runs-on: ubuntu-latest
-    needs: [test, security]
+    needs: [test-web, test-api, security]
     if: github.ref == 'refs/heads/main'
     
     steps:
