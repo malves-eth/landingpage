@@ -116,6 +116,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: web
           scope: ${{ secrets.VERCEL_ORG_ID }}
+        continue-on-error: true
 
   # Deploy to production (main branch)
   deploy-production:
@@ -137,6 +138,18 @@ jobs:
           vercel-args: '--prod'
           working-directory: web
           scope: ${{ secrets.VERCEL_ORG_ID }}
+        continue-on-error: true
+      
+      - name: ⚠️ Vercel Secrets Not Configured
+        if: failure()
+        run: |
+          echo "⚠️ Vercel deployment failed - secrets may not be configured"
+          echo "To enable deployment, configure these secrets in GitHub:"
+          echo "  - VERCEL_TOKEN"
+          echo "  - VERCEL_ORG_ID" 
+          echo "  - VERCEL_PROJECT_ID"
+          echo ""
+          echo "See: https://github.com/malves-eth/landingpage/settings/secrets/actions"
 
   # Create GitHub Release (semantic versioning)
   release:
